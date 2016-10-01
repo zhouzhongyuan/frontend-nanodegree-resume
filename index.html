@@ -108,6 +108,86 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   -->
 
   <script>
+    var headerName = HTMLheaderName.replace("%data%", bio.name);
+    var headerRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(headerName, headerRole);
+
+
+    var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+    var email = HTMLemail.replace("%data%", bio.contacts.email);
+    var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+    var github = HTMLgithub.replace("%data%", bio.contacts.github);
+    var blog = HTMLblog.replace("%data%", bio.contacts.blog);
+    var bioLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#topContacts, #footerContacts").append(
+            mobile,
+            email,
+            twitter,
+            github,
+            blog,
+            bioLocation
+    );
+    var bioPic = HTMLbioPic.replace("%data%",bio.biopic);
+    var welcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMessage);
+    $("#header").append(bioPic, welcomeMsg);
+
+    $("#header").append(HTMLskillsStart);
+    for (var i = 0; i < bio.skills.length; i++) {
+        var skill = HTMLskills.replace("%data%", bio.skills[i]);
+      $("#skills-h3").append(skill);
+    }
+
+
+    //work
+    for (var i = 0; i < work.jobs.length; i++) {
+      $("#workExperience").append(HTMLworkStart);
+      var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+      var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+      var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+      var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+      var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+      $(".work-entry:last").append(
+              formattedEmployer,
+              formattedTitle,
+              formattedLocation,
+              formattedDates,
+              formattedDescription
+      );
+    }
+    //project
+    for (var i = 0; i < project.projects.length; i++) {
+      var projectDetail = project.projects[i];
+      $("#projects").append(HTMLprojectStart);
+
+      var formattedProjectTitle = HTMLprojectTitle.replace("%data%",        projectDetail.title);
+      var formattedProjectDates = HTMLprojectDates.replace("%data%",      projectDetail.dates);
+      var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projectDetail.description);
+      var formattedProjectImage = HTMLprojectImage.replace("%data%",    projectDetail.images[0]);
+      $(".project-entry:last").append(
+              formattedProjectTitle,
+              formattedProjectDates,
+              formattedProjectDescription,
+              formattedProjectImage
+      );
+    }
+    //school
+    for (var i = 0; i < education.schools.length; i++) {
+      var school = education.schools[i];
+      $("#education").append(HTMLschoolStart);
+
+      var formattedSchoolName = HTMLschoolName.replace("%data%", school.name);
+      var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", school.degree);
+      var formattedSchoolDates = HTMLschoolDates.replace("%data%", school.dates);
+      var formattedSchoolLocation = HTMLschoolLocation.replace("%data%", school.location);
+      var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", school.majors);
+      $(".education-entry:last").append(
+              formattedSchoolName,
+              formattedSchoolDegree,
+              formattedSchoolDates,
+              formattedSchoolLocation,
+              formattedSchoolMajor
+      );
+    }
     // Notice how all of a sudden there's JavaScript inside this HTML
     // document? You can write JavaScript between <script> tags. At the end of your
     // JavaScript, don't forget the closing script tag with the slash (/).

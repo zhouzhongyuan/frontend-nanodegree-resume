@@ -8,9 +8,9 @@ var bio = {
     contacts: {
         mobile: "13052058085",
         email: "yawenzhongyuan@gmail.com",
-        github: "https://github.com/zhouzhongyuan",
-        twitter: "https://twitter.com/zhouzhongyuan",
-        location: "Tianjie Dasha 7 floor,Yangpu Qu,Shanghai, China",
+        github: "zhouzhongyuan",
+        twitter: "@zhouzhongyuan",
+        location: "Shanghai,China",
     },
     welcomeMessage: "你好",
     skills: ["Javascript", "nodejs", "html", "css"],
@@ -61,8 +61,8 @@ var project = {
         {
             title: "App pack website",
             dates: "20150901-20161001",
-            description: "a tools just like \"Phonegap Builds\"",
-            images: ["url1", "url2"],
+            description: "a tools just like 'Phonegap Builds'",
+            images: ["images/197x148.gif", "url2"],
         }
     ],
     display: function () {
